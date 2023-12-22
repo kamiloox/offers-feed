@@ -1,1 +1,3 @@
-export const schemaTypes = [];
+import { offerSchema } from "./offer";
+
+export const schemaTypes = [offerSchema];
