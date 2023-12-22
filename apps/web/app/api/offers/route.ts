@@ -1,5 +1,17 @@
 import { readFileContents } from "../../../utils/file";
 import { parseAllegroOffersCsv } from "../../../offers/parseAllegroOffersCsv";
+import { createManyOffers, getAllOffers } from "../../../offers/database";
+
+const handleFailure = (error: unknown) => {
+  console.error(error);
+
+  const errorMessage = error instanceof Error ? error.message : "Unknown error";
+
+  return Response.json(
+    { error: true, data: null },
+    { status: 500, statusText: errorMessage }
+  );
+};
 
 export const POST = async (request: Request) => {
   try {
@@ -15,12 +27,20 @@ export const POST = async (request: Request) => {
 
     const offers = await parseAllegroOffersCsv(offersContent);
 
-    // upload to sanity
+    await createManyOffers(offers);
 
     return Response.json({ error: false, data: offers });
   } catch (error) {
-    console.error(error);
+    handleFailure(error);
+  }
+};
 
-    return Response.json({ error: true, data: null });
+export const GET = async () => {
+  try {
+    const offers = await getAllOffers();
+
+    return Response.json({ error: false, data: offers });
+  } catch (error) {
+    handleFailure(error);
   }
 };
