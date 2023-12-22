@@ -6,7 +6,7 @@ export default function Page(): JSX.Element {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    await fetch("/api/offers", {
+    await fetch("/api/offers/feed", {
       method: "POST",
       body: formData,
     });
