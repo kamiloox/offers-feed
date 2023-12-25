@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@mui/joy";
 import { FormEvent } from "react";
 
 export default function Page(): JSX.Element {
@@ -20,7 +21,7 @@ export default function Page(): JSX.Element {
           Wybierz plik CSV
           <input type="file" name="offers" accept="text/csv" />
         </label>
-        <button type="submit">Wgraj</button>
+        <Button type="submit">Wgraj</Button>
       </form>
     </main>
   );

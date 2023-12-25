@@ -1,8 +1,12 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import ThemeRegistry from "./ThemeRegistry";
+import { Container } from "@mui/joy";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -16,7 +20,11 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeRegistry options={{ key: "joy" }}>
+          <Container>{children}</Container>
+        </ThemeRegistry>
+      </body>
     </html>
   );
 }
