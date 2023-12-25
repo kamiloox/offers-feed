@@ -1,28 +1,14 @@
 "use client";
-import { Button } from "@mui/joy";
-import { FormEvent } from "react";
+import { Typography } from "@mui/joy";
 
-export default function Page(): JSX.Element {
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-    await fetch("/api/offers/feed", {
-      method: "POST",
-      body: formData,
-    });
-  };
-
+const Page = () => {
   return (
-    <main>
-      <h1>Hello world!</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Wybierz plik CSV
-          <input type="file" name="offers" accept="text/csv" />
-        </label>
-        <Button type="submit">Wgraj</Button>
-      </form>
-    </main>
+    <section>
+      <Typography level="h2" fontSize="xl" sx={{ mb: 2 }}>
+        Oferty
+      </Typography>
+    </section>
   );
-}
+};
+
+export default Page;

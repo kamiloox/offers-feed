@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ThemeRegistry from "./ThemeRegistry";
 import { Container } from "@mui/joy";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeRegistry options={{ key: "joy" }}>
-          <Container>{children}</Container>
+          <Container>
+            <main>{children}</main>
+            <Toaster />
+          </Container>
         </ThemeRegistry>
       </body>
     </html>
