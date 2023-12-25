@@ -1,4 +1,5 @@
-import { createManyOffers } from "../../../../offers/database";
+import { buildAllegroOffersCsv } from "../../../../offers/buildAllegroOffersCsv";
+import { createManyOffers, getAllOffers } from "../../../../offers/database";
 import { parseAllegroOffersCsv } from "../../../../offers/parseAllegroOffersCsv";
 import { handleFailure } from "../../../../utils/api";
 import { readFileContents } from "../../../../utils/file";
@@ -23,4 +24,12 @@ export const POST = async (request: Request) => {
   } catch (error) {
     handleFailure(error);
   }
+};
+
+export const GET = async () => {
+  const offers = await getAllOffers();
+
+  const offersCsv = buildAllegroOffersCsv(offers);
+
+  return new Response(offersCsv, { headers: { "Content-Type": "text/csv" } });
 };

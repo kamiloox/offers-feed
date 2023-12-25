@@ -11,6 +11,11 @@ export const offerSchema = defineType({
       type: "string",
     }),
     defineField({
+      name: "productId",
+      title: "Product Id",
+      type: "string",
+    }),
+    defineField({
       name: "brand",
       title: "Brand",
       type: "string",

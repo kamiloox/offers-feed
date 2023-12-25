@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const allegroOfferSchema = z.object({
   id_oferty: z.string(),
+  "id_produktu_(ean/upc/isbn/issn/id_produktu_allegro)": z.string(),
   kategoria_glowna: z.string(),
   podkategoria: z.string(),
   liczba_sztuk: z.string(),
@@ -20,6 +21,7 @@ export const allegroOfferSchema = z.object({
 
 export const offerSchema = allegroOfferSchema.transform((offer) => ({
   id: offer.id_oferty,
+  productId: offer["id_produktu_(ean/upc/isbn/issn/id_produktu_allegro)"],
   brand: offer.marka,
   productType: offer.rodzaj,
   mainCategory: offer.kategoria_glowna,
