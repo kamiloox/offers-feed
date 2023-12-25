@@ -1,7 +1,10 @@
 "use client";
-import { Box, Button, Divider, Stack, Typography } from "@mui/joy";
+import { Box, Button, Divider, Link, Stack, Typography } from "@mui/joy";
 import { InputFileUpload } from "../../components/InputFileUpload";
 import { useUploadOffers } from "./useUploadOffers";
+
+const ALLEGRO_INSTRUCTIONS_LINK =
+  "https://allegro.pl/pomoc/dla-sprzedajacych/wystawianie-ofert-z-pliku/masowe-wystawianie-ofert-z-pliku-csv-bez-wykorzystania-makr-m0RYGv0PmsX";
 
 const Page = () => {
   const { file, uploadState, uploadOffers, onFileChange } = useUploadOffers();
@@ -9,7 +12,10 @@ const Page = () => {
   return (
     <Box sx={{ py: 2 }}>
       <Typography level="h2" fontSize="xl" sx={{ mb: 2 }}>
-        Wystaw oferty z pliku CSV
+        Wystaw oferty z pliku CSV Allegro{" "}
+        <Link href={ALLEGRO_INSTRUCTIONS_LINK} target="_blank">
+          (Instrukcja)
+        </Link>
       </Typography>
       <form onSubmit={uploadOffers}>
         {file && (
@@ -36,7 +42,7 @@ const Page = () => {
       <Divider sx={{ mb: 2 }} />
       <Stack spacing={2} sx={{ my: 2 }} alignItems="flex-start">
         <Typography level="h2" fontSize="xl">
-          Baza ofert
+          Baza ofert (Do wystawienia na allegro)
         </Typography>
         <Button component="a" variant="soft" href="/api/offers/feed" download>
           Pobierz CSV z ofertami
