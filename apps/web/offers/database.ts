@@ -17,3 +17,7 @@ export const createManyOffers = (offers: Offer[]) => {
 export const getAllOffers = () => {
   return client.fetch<Offer[]>(`*[_type == "offer"]`);
 };
+
+export const getOfferById = (id: string) => {
+  return client.fetch<Offer>(`*[_type == "offer" && id == $id][0]`, { id });
+};

@@ -4,6 +4,7 @@ import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
 import Link from "@mui/joy/Link";
+import NextLink from "next/link";
 import Typography from "@mui/joy/Typography";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { Offer } from "../offers/offerSchema";
@@ -33,23 +34,24 @@ export const ProductCard = ({
       </CardOverflow>
       <CardContent>
         <Typography level="body-xs">{mainCategory}</Typography>
-        <Link
-          href={href}
-          fontWeight="md"
-          color="neutral"
-          textColor="text.primary"
-          overlay
-          endDecorator={<ArrowOutwardIcon />}
-          sx={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            display: "-webkit-box",
-            WebkitLineClamp: "2",
-            WebkitBoxOrient: "vertical",
-          }}
-        >
-          {title}
-        </Link>
+        <NextLink href={href} passHref legacyBehavior>
+          <Link
+            fontWeight="md"
+            color="neutral"
+            textColor="text.primary"
+            overlay
+            endDecorator={<ArrowOutwardIcon />}
+            sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: "2",
+              WebkitBoxOrient: "vertical",
+            }}
+          >
+            {title}
+          </Link>
+        </NextLink>
         <Typography level="title-lg" sx={{ mt: 1, fontWeight: "xl" }}>
           {price} zł
         </Typography>

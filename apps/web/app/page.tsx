@@ -13,7 +13,7 @@ const Page = async () => {
       <Grid container spacing={2} sx={{ flexGrow: 1 }}>
         {offers.map((offer) => (
           <Grid key={offer.id} xs={12} md={6} lg={4} sx={{ height: "100%" }}>
-            <ProductCard {...offer} href="#" />
+            <ProductCard {...offer} href={`/oferty/${offer.id}`} />
           </Grid>
         ))}
       </Grid>
