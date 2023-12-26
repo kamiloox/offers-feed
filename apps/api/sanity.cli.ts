@@ -3,7 +3,7 @@ import { env } from "./utils/env";
 
 export default defineCliConfig({
   api: {
-    projectId: env.SANITY_PROJECT_ID,
-    dataset: env.SANITY_DATASET,
+    projectId: env.SANITY_STUDIO_PROJECT_ID,
+    dataset: env.SANITY_STUDIO_DATASET,
   },
 });
