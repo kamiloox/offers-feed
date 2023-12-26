@@ -17,6 +17,11 @@ const Page = async () => {
           </Grid>
         ))}
       </Grid>
+      {offers.length === 0 && (
+        <Typography level="body-sm" sx={{ mt: 2 }}>
+          Brak ofert
+        </Typography>
+      )}
     </section>
   );
 };
