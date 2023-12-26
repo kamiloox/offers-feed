@@ -1,5 +1,7 @@
 import { defineCliConfig } from "sanity/cli";
-import { env } from "./utils/env";
+import { getEnvVariables } from "./utils/env";
+
+const env = getEnvVariables();
 
 export default defineCliConfig({
   api: {

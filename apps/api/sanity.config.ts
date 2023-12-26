@@ -2,7 +2,9 @@ import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemas";
-import { env } from "./utils/env";
+import { getEnvVariables } from "./utils/env";
+
+const env = getEnvVariables();
 
 export default defineConfig({
   name: "default",
