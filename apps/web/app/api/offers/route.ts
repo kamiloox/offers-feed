@@ -7,6 +7,6 @@ export const GET = async () => {
 
     return Response.json({ error: false, data: offers });
   } catch (error) {
-    handleFailure(error);
+    return handleFailure(error);
   }
 };

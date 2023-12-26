@@ -22,7 +22,7 @@ export const POST = async (request: Request) => {
 
     return Response.json({ error: false, data: offers });
   } catch (error) {
-    handleFailure(error);
+    return handleFailure(error);
   }
 };
 
