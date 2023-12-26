@@ -1,7 +1,7 @@
 import { getOfferById } from "../../../offers/database";
 import NextLink from "next/link";
 import Image from "next/image";
-import { Link, Box, Typography, AspectRatio, Grid } from "@mui/joy";
+import { Link, Box, Typography, AspectRatio, Grid, Card } from "@mui/joy";
 import { ArrowLeftOutlined } from "@mui/icons-material";
 
 const Page = async ({ params }: { params: { offerId: string } }) => {
@@ -23,11 +23,11 @@ const Page = async ({ params }: { params: { offerId: string } }) => {
       <Box sx={{ mb: 2, mt: 1 }}>
         <Grid container spacing={2}>
           <Grid xs={12} md={8}>
-            <Box>
-              <AspectRatio ratio="3/2" sx={{ border: "1px solid black" }}>
+            <Card variant="soft">
+              <AspectRatio ratio="3/2">
                 <Image src={offer.image} fill loading="lazy" alt="" />
               </AspectRatio>
-            </Box>
+            </Card>
           </Grid>
           <Grid xs={12} md={4}>
             <Typography level="body-xs">{offer.mainCategory}</Typography>

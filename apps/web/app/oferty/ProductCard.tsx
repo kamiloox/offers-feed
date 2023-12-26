@@ -7,7 +7,7 @@ import Link from "@mui/joy/Link";
 import NextLink from "next/link";
 import Typography from "@mui/joy/Typography";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { Offer } from "../offers/offerSchema";
+import { Offer } from "../../offers/offerSchema";
 import Image from "next/image";
 
 type Props = Pick<

@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/joy";
-import { getAllOffers } from "../offers/database";
+import { getAllOffers } from "../../offers/database";
 import { ProductCard } from "./ProductCard";
 
 const Page = async () => {
